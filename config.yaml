@@ -1,0 +1,36 @@
+corpus:
+  max_circulars: 200
+
+gap_thresholds:
+  # Jaccard token-overlap score between an obligation sentence and the
+  # single best-matching internal policy clause.
+  covered_min: 0.45   # score >= this -> COVERED
+  partial_min: 0.20   # score >= this (and < covered_min) -> PARTIAL
+  # anything below partial_min -> MISSING
+
+severity_keywords:
+  high:
+    - penalty
+    - suspension
+    - disclosure
+    - insider trading
+    - fraud
+  medium:
+    - reporting
+    - timeline
+    - kyc
+    - disclosure format
+  # anything not matched -> low
+
+due_date_offsets_days:
+  high: 3
+  medium: 7
+  low: 14
+
+escalation_overdue_days: 2
+
+owners:
+  - "Compliance Officer"
+  - "Legal Counsel"
+  - "Ops Lead"
+  - "Risk Manager"
